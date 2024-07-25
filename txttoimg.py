@@ -2,7 +2,11 @@ import torch
 from diffusers import StableDiffusionPipeline, DPMSolverMultistepScheduler
 import streamlit as st
 from langchain_google_genai import ChatGoogleGenerativeAI
+from dotenv import load_dotenv
 import os
+
+# Load environment variables from .env file
+load_dotenv()
 
 # Set your API keys from environment variables
 HF_API_KEY = os.getenv("HF_API_KEY")
