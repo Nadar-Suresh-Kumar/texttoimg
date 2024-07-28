@@ -1,9 +1,10 @@
 import torch
 from diffusers import StableDiffusionPipeline, DPMSolverMultistepScheduler
 import streamlit as st
-from langchain_google_genai import ChatGoogleGenerativeAI
 from dotenv import load_dotenv
+from langchain_google_genai import ChatGoogleGenerativeAI
 import os
+
 
 # Load environment variables from .env file
 load_dotenv()
@@ -42,8 +43,8 @@ user_prompt = st.text_input("Enter your prompt here", "")
 if st.button("Generate Image"):
     if user_prompt:
         with st.spinner("Enhancing prompt..."):
-            enhanced_prompt = get_enhanced_prompt(user_prompt)
-
+            #enhanced_prompt = get_enhanced_prompt(user_prompt)
+            enhanced_prompt = user_prompt
             with st.spinner("Generating image..."):
                 image = pipe(enhanced_prompt).images[0]
                 st.image(image, caption="Generated Image")
